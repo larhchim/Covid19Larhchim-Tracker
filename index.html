@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Covid 19 Home page</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="js/foundation.js"></script>
+  <script src="js/foundation.js.map"></script>
+  <script src="js/vendor.js"></script>
+  <link rel="stylesheet" href="css/foundation-float.css" />
+  <link rel="stylesheet" href="css/foundation-float.css.map" />
+  <link rel="stylesheet" href="css/foundation-prototype.css" />
+  <link rel="stylesheet" href="css/foundation-prototype.css.map" />
+  <link rel="stylesheet" href="css/foundation-rtl.css" />
+  <link rel="stylesheet" href="css/foundation-rtl.css.map" />
+  <link rel="stylesheet" href="css/foundation.css" />
+  <link rel="stylesheet" href="css/foundation.css.map" />
+  <script src="https://cdnjs.com/libraries/Chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+  <script src="js/test.js"></script>
+  <script src="js/corona.js"></script>
+  <script src="js/coronaCountries.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script> 
+  <link rel="icon" type="image/png" href="img/virus.jpg" />
+
+
+
+
+  <style>
+      @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700);
+
+      .covid{
+          text-align: center;
+          max-width: 45%;
+          margin: auto;
+      }
+
+
+
+ 
+.container-1 {
+	align-items: start;
+	display: grid;
+	grid-gap: 16px;
+	grid-template-columns: repeat(auto-fit, 300px);
+	justify-content: center;
+}
+  .box-1,.box-2 {
+	border-radius: 5px;
+	padding: 24px 0 16px;
+	text-align: center;
+	text-shadow: 1px 1px 0 #555;
+}
+
+    .ta {
+      background-color: #4CAF50;
+  color: white;
+    }
+
+    
+    .ta th{
+      background-color: #4CAF50;
+  color: white;
+    }
+
+h4{
+  color: black;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+span{
+  font-family:Roboto;
+
+font-weight: bolder;
+font-size: x-large;
+}
+
+p{
+  color: #999;
+}
+
+.footer-section {
+  background: #151414;
+  position: relative;
+}
+.footer-cta {
+  border-bottom: 1px solid #373636;
+}
+.single-cta i {
+  color: #ff5e14;
+  font-size: 30px;
+  float: left;
+  margin-top: 8px;
+}
+.cta-text {
+  padding-left: 15px;
+  display: inline-block;
+}
+.cta-text h4 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.cta-text span {
+  color: #757575;
+  font-size: 15px;
+}
+.footer-content {
+  position: relative;
+  z-index: 2;
+}
+.footer-pattern img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 330px;
+  background-size: cover;
+  background-position: 100% 100%;
+}
+.footer-logo {
+  margin-bottom: 30px;
+}
+.footer-logo img {
+    max-width: 200px;
+}
+.footer-text p {
+  margin-bottom: 14px;
+  font-size: 14px;
+      color: #7e7e7e;
+  line-height: 28px;
+}
+.footer-social-icon span {
+  color: #fff;
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 20px;
+}
+.footer-social-icon a {
+  color: #fff;
+  font-size: 16px;
+  margin-right: 15px;
+}
+.footer-social-icon i {
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 38px;
+  border-radius: 50%;
+}
+.facebook-bg{
+  background: #3B5998;
+}
+.twitter-bg{
+  background: #55ACEE;
+}
+.google-bg{
+  background: #DD4B39;
+}
+.footer-widget-heading h3 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  position: relative;
+}
+.footer-widget-heading h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -15px;
+  height: 2px;
+  width: 50px;
+  background: #ff5e14;
+}
+.footer-widget ul li {
+  display: inline-block;
+  float: left;
+  width: 50%;
+  margin-bottom: 12px;
+}
+.footer-widget ul li a:hover{
+  color: #ff5e14;
+}
+.footer-widget ul li a {
+  color: #878787;
+  text-transform: capitalize;
+}
+.subscribe-form {
+  position: relative;
+  overflow: hidden;
+}
+.subscribe-form input {
+  width: 100%;
+  padding: 14px 28px;
+  background: #2E2E2E;
+  border: 1px solid #2E2E2E;
+  color: #fff;
+}
+.subscribe-form button {
+    position: absolute;
+    right: 0;
+    background: #ff5e14;
+    padding: 13px 20px;
+    border: 1px solid #ff5e14;
+    top: 0;
+}
+.subscribe-form button i {
+  color: #fff;
+  font-size: 22px;
+  transform: rotate(-6deg);
+}
+.copyright-area{
+  background: #202020;
+  padding: 25px 0;
+}
+.copyright-text p {
+  margin: 0;
+  font-size: 14px;
+  color: #878787;
+}
+.copyright-text p a{
+  color: #ff5e14;
+}
+.footer-menu li {
+  display: inline-block;
+  margin-left: 20px;
+}
+.footer-menu li:hover a{
+  color: #ff5e14;
+}
+.footer-menu li a {
+  font-size: 14px;
+  color: #878787;
+}
+
+
+
+
+.spinner-wrapper{
+    width: 100%;
+    height: 100%;
+    background-color: #151515;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner {
+    position: relative;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+}
+
+.spinner::before,
+.spinner:after{
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+}
+
+.spinner:before {
+    width: 100%;
+    height: 100%;
+    background-image:linear-gradient(90deg, #ff00cc 0%,#333399 100% );
+    animation: spin .5s infinite linear;
+}
+.spinner:after {
+    width: 90%;
+    height: 90%;
+    background-color: #151515;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+/*Simulate page content*/
+.main-content{
+    width: 100%;
+    height: 100vh;
+    background: url("https://source.unsplash.com/random/4000x4000") center no-repeat;
+    background-size: cover;
+}
+
+  </style>
+  
+
+</head>
+<body>
+  <div class='spinner-wrapper'>
+    <div class="spinner"></div>
+</div>
+
+
+<script>
+    let spinnerWrapper = document.querySelector('.spinner-wrapper');
+
+    window.addEventListener('load', function () {
+        // spinnerWrapper.style.display = 'none';
+        spinnerWrapper.parentElement.removeChild(spinnerWrapper);
+    });
+</script>
+<!-- This demo uses float grid but you can use flex grid too -->
+
+<div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+    <div class="title-bar-title">Menu</div>
+  </div>
+  
+  <div class="top-bar" id="responsive-menu">
+    <div class="top-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <li class="menu-text">Corona Stats</li>
+      
+     
+        <li><select onchange="javascript:urlSelect();" id="covidOptions" style="max-width: 300px;margin: auto;">
+        </select></li>
+
+      </ul>
+    
+    </div>
+    <div class="top-bar-right">
+      <ul class="menu">
+        <li><input type="search" placeholder="Search" id="search" ></li>
+        <li><button type="button" class="button" id="button" onclick="myFunction();">Search</button></li>
+      </ul>
+    </div>
+  </div>
+
+
+  <div style="margin: auto;text-align: center;">
+      <h1>Coronavirus Cases:</h1>
+      <h2 style="color: blue;" id="cases"></h2>
+      <h1>Deaths:</h1>
+      <h2 style="color: red;" id="deaths"></h2>
+      <h1>Recovered:</h1>
+      <h2 style="color: rgb(102, 187, 102);" id="recover"></h2>
+  </div>
+
+
+  <div  style="text-align: center;" class="container-1">
+
+    <div class="cell" class="box-1">
+      <div class="card">
+        <div class="card-section">
+          <table >
+            <tr>
+              <td class="ta">   <h3>Active Cases</h3></td>
+            </tr>
+         
+          </table>
+      
+                     
+                
+          <h4 id="activ"></h4>
+          <p>Currently Infected Patients</p>
+
+    
+      
+            <h4 id="activm"></h4><span id="activmp" style="color:blue"></span>%
+            <p>in Mild Condition</p>
+            <h4 id="serious"></h4><span id="seriousp" style="color: red;"></span>%
+            <p>Serious or Critical</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cell" class="box-2">
+        <div class="card">
+          <div class="card-section">
+  
+            <table class="ta">
+              <tr>
+                <td class="ta"> <h3>Closed Cases</h3> </td>
+              </tr>
+            </table>
+           
+             
+                
+                  <h4 id="closes"></h4>
+                  <p>Cases which had an outcome</p>
+   
+            
+              
+                    <h4 id="recovered"></h4><span id="recoverdp" style="color:blue"></span>%
+                    <p>Recovered / Discharged</p>
+                    <h4 id="die"></h4><span id="diep" style="color: red;"></span>%
+                    <p>Deaths</p>
+             
+         
+            
+          </div>
+        </div>
+      </div>
+     
+      
+   
+    
+
+  </div>
+
+  <center>
+     <h1>Radar Chart Covid 19</h1>
+    <canvas id="myChart" width="300" height="400" style="margin: auto;"></canvas> 
+    <h1>Covid 19 Graph Summary</h1>
+    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+    <div></div>
+    <h1>Covid 19 Graph comparaison Stats</h1>
+    <canvas id="myChart2" width="300" height="400"></canvas>
+
+
+  </center>
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <script src="js/graph.js"></script>  
+
+
+ <script>
+function myFunction() {
+
+// Declare variables 
+var input = document.getElementById("search");
+var filter = input.value.toUpperCase();
+var table = document.getElementById("covid");
+var trs = table.tBodies[0].getElementsByTagName("tr");
+
+// Loop through first tbody's rows
+for (var i = 1; i < trs.length; i++) {
+
+  // define the row's cells
+  var tds = trs[i].getElementsByTagName("td");
+
+  // hide the row
+  trs[i].style.display = "none";
+
+  // loop through row cells
+  for (var i2 = 0; i2 < tds.length; i2++) {
+
+    // if there's a match
+    if (tds[i2].innerHTML.toUpperCase().indexOf(filter) > -1) {
+
+      // show the row
+      trs[i].style.display = "";
+
+      // skip to the next row
+      continue;
+
+    }
+  }
+}
+
+}
+
+
+function Func() {
+
+// Declare variables 
+var input = document.getElementById("search2");
+var filter = input.value.toUpperCase();
+var table = document.getElementById("covid");
+var trs = table.tBodies[0].getElementsByTagName("tr");
+
+// Loop through first tbody's rows
+for (var i = 1; i < trs.length; i++) {
+
+  // define the row's cells
+  var tds = trs[i].getElementsByTagName("td");
+
+  // hide the row
+  trs[i].style.display = "none";
+
+  // loop through row cells
+  for (var i2 = 0; i2 < tds.length; i2++) {
+
+    // if there's a match
+    if (tds[i2].innerHTML.toUpperCase().indexOf(filter) > -1) {
+
+      // show the row
+      trs[i].style.display = "";
+
+      // skip to the next row
+      continue;
+
+    }
+  }
+}
+
+}
+</script>
+<script src="paging.js">
+
+$('#covid').paging({limit:5});
+
+
+
+</script>
+
+
+<input type="search" placeholder="Search" id="search2" onkeyup="javascript:Func();" style="max-width: 300px;margin: auto;">
+
+  <table id="covid" class="covid" style=" display: block;
+  overflow-x: auto; max-height: 1000px ;max-width: 90%;
+  overflow-y: scroll;" >
+  </table> 
+  
+
+  
+<script>
+    $(document).foundation();
+
+    function urlSelect() {
+    var b = document.getElementById('covidOptions').value,
+        url = 'next.html?name=' + encodeURIComponent(b);
+
+    document.location.href = url;
+}
+
+setTimeout(function(){
+   window.location.reload(1);
+}, 15000*60);
+</script>  
+   
+
+
+
+<footer class="footer-section" style="margin-top:150px;">
+  <div class="container">
+      <div class="footer-cta pt-5 pb-5">
+          <div class="row">
+              <div class="col-xl-4 col-md-4 mb-30">
+                  <div class="single-cta">
+                      <div class="cta-text">
+                          <h4>Find us</h4>
+                          <span>Rabat Morocco</span>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-xl-4 col-md-4 mb-30">
+                  <div class="single-cta">
+                      <div class="cta-text">
+                          <h4>Call us</h4>
+                          <span>+212670159004</span>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-xl-4 col-md-4 mb-30">
+                  <div class="single-cta">
+                      <div class="cta-text">
+                          <h4>Mail us</h4>
+                          <span><a href="mailto:larhchim@gmail.com">larhchim@gmail.com</a></span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="footer-content pt-5 pb-5">
+          <div class="row">
+              <div class="col-xl-4 col-lg-4 mb-50">
+                  <div class="footer-widget">
+                     
+                      <div class="footer-text">
+                          <p>Lorem ipsum dolor sit amet, consec tetur adipisicing elit, sed do eiusmod tempor incididuntut consec tetur adipisicing
+                          elit,Lorem ipsum dolor sit amet.</p>
+                      </div>
+
+                  </div>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                  <div class="footer-widget">
+                      <div class="footer-widget-heading">
+                          <h3>Useful Links</h3>
+                      </div>
+                      <ul>
+                          <li><a href="#">Home</a></li>
+                          <li><a href="#">about</a></li>
+                          <li><a href="#">services</a></li>
+                          <li><a href="#">portfolio</a></li>
+                          <li><a href="#">Contact</a></li>
+                          <li><a href="#">About us</a></li>
+                          <li><a href="#">Our Services</a></li>
+                          <li><a href="#">Expert Team</a></li>
+                          <li><a href="#">Contact us</a></li>
+                          <li><a href="#">Latest News</a></li>
+                      </ul>
+                  </div>
+              </div>
+             
+          </div>
+      </div>
+  </div>
+  <div class="copyright-area">
+      <div class="container">
+          <div class="row">
+              <div class="col-xl-6 col-lg-6 text-center text-lg-left">
+                  <div class="copyright-text">
+                      <p>Copyright &copy; 2021, All Right Reserved <a href="#">LARHCHIM</a></p>
+                  </div>
+              </div>
+          
+          </div>
+      </div>
+  </div>
+</footer>
+</body>
+</html>

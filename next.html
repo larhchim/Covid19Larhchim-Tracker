@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid Country Details</title>
+    <link rel="icon" type="image/png" href="img/virus.jpg" />
+    <script src="js/foundation.js"></script>
+  <script src="js/foundation.js.map"></script>
+  <script src="js/vendor.js"></script>
+  <link rel="stylesheet" href="css/foundation-float.css" />
+  <link rel="stylesheet" href="css/foundation-float.css.map" />
+  <link rel="stylesheet" href="css/foundation-prototype.css" />
+  <link rel="stylesheet" href="css/foundation-prototype.css.map" />
+  <link rel="stylesheet" href="css/foundation-rtl.css" />
+  <link rel="stylesheet" href="css/foundation-rtl.css.map" />
+  <link rel="stylesheet" href="css/foundation.css" />
+  <link rel="stylesheet" href="css/foundation.css.map" />
+  <script src="https://cdnjs.com/libraries/Chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script> 
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+<script src="js/nextcorona.js"></script>
+
+<style>
+      .ta {
+      background-color: #4CAF50;
+  color: white;
+    }
+body{
+    font-family: 'Oswald', sans-serif;
+}
+
+#space{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+.spinner-wrapper{
+    width: 100%;
+    height: 100%;
+    background-color: #151515;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner {
+    position: relative;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+}
+
+.spinner::before,
+.spinner:after{
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+}
+
+.spinner:before {
+    width: 100%;
+    height: 100%;
+    background-image:linear-gradient(90deg, #ff00cc 0%,#333399 100% );
+    animation: spin .5s infinite linear;
+}
+.spinner:after {
+    width: 90%;
+    height: 90%;
+    background-color: #151515;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+/*Simulate page content*/
+.main-content{
+    width: 100%;
+    height: 100vh;
+    background: url("https://source.unsplash.com/random/4000x4000") center no-repeat;
+    background-size: cover;
+}
+
+</style>
+</head>
+<body>
+    <div class='spinner-wrapper'>
+        <div class="spinner"></div>
+    </div>
+    
+    
+    <script>
+        let spinnerWrapper = document.querySelector('.spinner-wrapper');
+    
+        window.addEventListener('load', function () {
+            // spinnerWrapper.style.display = 'none';
+            spinnerWrapper.parentElement.removeChild(spinnerWrapper);
+        });
+    </script>
+
+    <script>
+            $(document).foundation();
+
+    </script>
+
+<div class="top-bar">
+    <div class="top-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <li class="menu-text">Corona Stats</li>
+        <li>
+          <a href="index.html">Home Page Corona Stats</a>
+          
+        </li>
+    
+      </ul>
+    </div>
+
+  </div>
+
+<p id="space"></p>
+<center>
+    <div style="margin: auto;">
+        <h1 id="c5" style="font-family: 'Roboto Slab', serif;"></h1>
+        <img src="" alt="flag" id="countryInfo.flag">
+    </div>
+
+</center>
+  
+
+<p id="space"></p>
+
+    <center>
+        <h1>Radar Chart Covid 19 Of <span id="c1"></span></h1>
+        <p id="space"></p>
+
+       <canvas id="myChart" width="300" height="400" style="margin: auto;"></canvas> 
+       <p id="space"></p>
+
+       <h1>Covid 19 Graph Summary Of <span id="c4"></span></h1>
+       <p id="space"></p>
+
+       <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+       <div></div>
+       <h1>Covid 19 Graph comparaison Stats Of <span id="c2"></span> </h1>
+       <p id="space"></p>
+
+       <canvas id="myChart2" width="300" height="400"></canvas>
+       <p id="space"></p>
+       <p id="space"></p>
+       <p id="space"></p>
+
+
+       <h1>Extra Details Informations Table Of <span id="c3"></span></h1>
+   
+   
+     </center>
+     <script src="js/nextcorona.js">
+
+ 
+     
+
+     </script>
+<script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+
+<p id="space"></p>
+
+    <table style="max-width: 50%;margin: auto;">
+        <tr>
+            <th class="ta">
+                Criteria
+            </th>
+            <th class="ta">
+                Value
+            </th>
+        </tr>
+
+
+        <tr>
+            <td>Country Code</td>
+            <td id="countryInfoiso3"></td>
+
+        </tr>
+
+        <tr>
+            <td>Country GPS latitude</td>
+            <td id="countryInfolat"></td>
+
+        </tr>
+        <tr>
+            <td>Country GPS longitude</td>
+            <td id="countryInfolong"></td>
+
+        </tr>
+       
+        <tr>
+            <td>Number of Cases</td>
+            <td id="cases"></td>
+
+        </tr>
+        <tr>
+            <td>Number Of today Cases</td>
+            <td id="todayCases"></td>
+
+        </tr>
+        <tr>
+            <td>Number Of Deaths</td>
+            <td id="deaths"></td>
+
+        </tr>
+        <tr>
+            <td>Number Of today Deaths</td>
+            <td id="todayDeaths"></td>
+
+        </tr>
+        <tr>
+            <td>Number Of recovered</td>
+            <td id="recovered"></td>
+
+        </tr>
+        <tr>
+            <td>Number Of todayRecovered</td>
+            <td id="todayRecovered"></td>
+
+        </tr>
+        <tr>
+            <td>Active Cases</td>
+            <td id="active"></td>
+
+        </tr>
+        <tr>
+            <td>Critical Cases</td>
+            <td id="critical"></td>
+
+        </tr>
+        <tr>
+            <td>Cases PerOneMillion</td>
+            <td id="casesPerOneMillion"></td>
+
+        </tr>
+        <tr>
+            <td>Deaths PerOneMillion</td>
+            <td id="deathsPerOneMillion"></td>
+
+        </tr>
+        <tr>
+            <td>Number Of Tests</td>
+            <td id="tests"></td>
+
+        </tr>
+        <tr>
+            <td>
+                Tests PerOneMillion</td>
+                <td id="testsPerOneMillion"></td>
+
+        </tr>
+        <tr>
+            <td>Population</td>
+            <td id="population"></td>
+
+        </tr>
+        <tr>
+            <td>Continent</td>
+            <td id="continent"></td>
+
+        </tr>
+        <tr>
+            <td>One Case PerPeople</td>
+            <td id="oneCasePerPeople"></td>
+
+        </tr>
+        <tr>
+            <td>One Death PerPeople</td>
+            <td id="oneDeathPerPeople"></td>
+
+        </tr>
+        <tr>
+            <td>One Test PerPeople</td>
+            <td id="oneTestPerPeople"></td>
+
+        </tr>
+        <tr>
+            <td>Active PerOneMillion</td>
+            <td id="activePerOneMillion"></td>
+
+        </tr>
+        <tr>
+            <td>Recovered PerOneMillion</td>
+            <td id="recoveredPerOneMillion"></td>
+
+        </tr>
+        <tr>
+            <td>Critical PerOneMillion</td>
+            <td id="criticalPerOneMillion"></td>
+
+        </tr>
+    </table>
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
