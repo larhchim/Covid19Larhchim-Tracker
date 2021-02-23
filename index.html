@@ -25,6 +25,12 @@
   <script src="js/coronaCountries.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script> 
   <link rel="icon" type="image/png" href="img/virus.jpg" />
+  <script>
+        $(document).foundation();
+  </script>
+
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script src="js/graph.js"></script>  
 
 
 
@@ -427,9 +433,7 @@ p{
 
 
   </center>
-  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-  <script src="js/graph.js"></script>  
-
+ 
 
  <script>
 function myFunction() {
@@ -503,13 +507,6 @@ for (var i = 1; i < trs.length; i++) {
 
 }
 </script>
-<script src="paging.js">
-
-$('#covid').paging({limit:5});
-
-
-
-</script>
 
 
 <input type="search" placeholder="Search" id="search2" onkeyup="javascript:Func();" style="max-width: 300px;margin: auto;">
@@ -522,7 +519,7 @@ $('#covid').paging({limit:5});
 
   
 <script>
-    $(document).foundation();
+
 
     function urlSelect() {
     var b = document.getElementById('covidOptions').value,
